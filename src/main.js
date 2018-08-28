@@ -4,9 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
+import ajaxUrl from './public/ajaxUrl'
+import _axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(Element)
+Vue.prototype.AjaxUrl = ajaxUrl
+Vue.prototype.Axios = _axios
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
