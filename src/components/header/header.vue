@@ -7,6 +7,7 @@
     </div>
   </el-header>
 </template>
+<style lang="less" src='./header.less'></style>
 <script>
 export default {
   data () {
@@ -16,6 +17,3 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-@import './header.less';
-</style>
