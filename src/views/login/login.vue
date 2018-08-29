@@ -15,83 +15,53 @@
     </el-form>
   </div>
 </template>
-<style>
-.loginbox {
-  width: 300px;
-  min-height: 300px;
-  padding: 20px;
-  margin: 4em auto 0;
-  border-radius: 8px;
-  box-shadow: 0 0 8px #999;
-  box-sizing: border-box;
-}
-
-.loginbox h1 {
-  text-align: center;
-  margin: 0;
-}
-
-.loginbox p {
-  color: red;
-  float: left;
-  line-height: 0;
-}
-
-.el-form .el-form-item {
-  margin-bottom: 6px;
-}
-.upbtn{
-	margin: 0 20px 0 40px;
-}
-
-</style>
+<style lang="less" src="./login.less"></style>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      formName: { //表单中的参数
+      formName: { // 表单中的参数
         user: '',
         userError: '',
         password: '',
         passwordError: '',
         beDisabled: true
       },
-      beShow: false //传值给父组件
+      beShow: false // 传值给父组件
     }
   },
   methods: {
-    resetForm: function() {
-      this.formName.user = '';
-      this.formName.userError = '';
-      this.formName.password = '';
-      this.formName.passwordError = '';
+    resetForm: function () {
+      this.formName.user = ''
+      this.formName.userError = ''
+      this.formName.password = ''
+      this.formName.passwordError = ''
     },
-    submitForm: function(formName) {
-      var user = this.formName.user,
-        password = this.formName.password;
+    submitForm: function (formName) {
+      var user = this.formName.user
+      var password = this.formName.password
       console.log(user, password)
-      //ajax 是否登录成功
-
+      // ajax 是否登录成功
     },
-    inputBlur: function(errorItem, inputContent) {
+    inputBlur: function (errorItem, inputContent) {
       if (errorItem === 'user') {
         if (inputContent === '') {
           this.formName.userError = '用户名不能为空'
         } else {
-          this.formName.userError = '';
+          this.formName.userError = ''
         }
       } else if (errorItem === 'password') {
         if (inputContent === '') {
           this.formName.passwordError = '密码不能为空'
         } else {
-          this.formName.passwordError = '';
+          this.formName.passwordError = ''
         }
       }
-      //对于按钮的状态进行修改
-      if (this.formName.user != '' && this.formName.password != '') {
-        this.formName.beDisabled = false;
+      // 对于按钮的状态进行修改
+      if (this.formName.user !== '' && this.formName.password !== '') {
+        this.formName.beDisabled = false
       } else {
-        this.formName.beDisabled = true;
+        this.formName.beDisabled = true
       }
     }
   }

@@ -1,24 +1,27 @@
-.dialog {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .8);
-}
-
-.loginPage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -175px;
-  width: 350px;
+.loginbox {
+  width: 300px;
   min-height: 300px;
-  padding: 30px 20px 20px;
+  padding: 20px;
+  margin: 4em auto 0;
   border-radius: 8px;
+  box-shadow: 0 0 8px #999;
   box-sizing: border-box;
-  background-color: #fff;
-}
 
-.loginPage p {
-  color: red;
-  text-align: left;
+  h1 {
+    text-align: center;
+    margin: 0;
+  }
+  p {
+    color: red;
+    float: left;
+    line-height: 0;
+  }
+  .el-form {
+    .el-form-item {
+      margin-bottom: 6px;
+    }
+  }
+  .upbtn {
+    margin: 0 20px 0 40px;
+  }
 }
