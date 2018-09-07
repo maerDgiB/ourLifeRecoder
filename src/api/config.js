@@ -1,5 +1,5 @@
 const base = ''
 
 export default {
-  // login: `${base}/login`
+  login: `${base}/login`
 }

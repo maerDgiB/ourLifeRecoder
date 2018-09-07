@@ -2,7 +2,7 @@
   <div class="loginbox">
     <h1>登录</h1>
     <el-form>
-      <el-form-item label="用户名">
+      <el-form-item label="用户名" :model="ruleForm" :rules="rules">
         <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
         <p>{{formName.userError}}</p>
       </el-form-item>
