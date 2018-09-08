@@ -16,28 +16,22 @@
       </el-table-column>
     </el-table>
     <el-dialog title="添加" :visible.sync="dialogVisible" width="30%">
-      <el-form>
+      <el-form :model="infoForm" :rules="rules" ref="infoForm" label-width="50px">
         <el-form-item label="姓名">
-          <el-select class="input-box" v-model="userName" placeholder="请选择">
+          <el-select class="input-box" v-model="infoForm.userName" placeholder="请选择">
             <el-option v-for="item in userNames" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="时间">
-            <el-date-picker class="input-box" v-model="dataTime" type="date" placeholder="选择日期">
-            </el-date-picker>
-          </el-form-item>
+        <el-form-item label="时间">
+          <el-date-picker class="input-box" v-model="infoForm.dataTime" type="date" placeholder="选择日期">
+          </el-date-picker>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="价格">
-            <el-input v-model="price" class="input-box" placeholder="请输入价格"></el-input>
-          </el-form-item>
+        <el-form-item label="价格" prop='price'>
+          <el-input v-model.number="infoForm.price" class="input-box" placeholder="请输入价格"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="材料">
-            <el-input type="textarea" class="input-box" :rows="2" placeholder="请输入内容" v-model="kind"></el-input>
-          </el-form-item>
+        <el-form-item label="材料">
+          <el-input type="textarea" class="input-box" :rows="2" placeholder="请输入内容" v-model="infoForm.kind"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -51,7 +45,24 @@
 <script>
 export default {
   data () {
+    var chackPrice = (rule, value, callback) => {
+      if (!value) {
+        return callback(new Error('价格不能为空'))
+      }
+    }
     return {
+      infoForm: {
+        userName: '',
+        dataTime: '',
+        price: '',
+        kind: ''
+      },
+      rules: {
+        price: [
+          {validator: chackPrice, trigger: 'blur'},
+          {type: 'number', message: '价格必须为数字值'}
+        ]
+      },
       tableData: [{
         date: '2016-05-02',
         name: '邹立杰',
@@ -65,11 +76,7 @@ export default {
       }, {
         value: '2',
         label: '邹大佬'
-      }],
-      userName: '',
-      dataTime: '',
-      price: '',
-      kind: ''
+      }]
     }
   }
 }
