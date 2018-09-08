@@ -16,31 +16,34 @@
       </el-table-column>
     </el-table>
     <el-dialog title="添加" :visible.sync="dialogVisible" width="30%">
-      <div class="input-wrapper">
-        <span class="title">姓名</span>
-        <el-select class="input-box" v-model="userName" placeholder="请选择">
-          <el-option v-for="item in userNames" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div>
-      <div class="input-wrapper">
-        <span class="title">时间</span>
-        <el-date-picker
-          class="input-box"
-          v-model="dataTime"
-          type="date"
-          placeholder="选择日期">
-        </el-date-picker>
-      </div>
-      <div class="input-wrapper">
-        <span class="title">价格</span>
-        <el-input v-model="price" class="input-box" placeholder="请输入价格"></el-input>
-      </div>
-      <div class="input-wrapper">
-        <span class="title">材料</span>
-        <el-input type="textarea" class="input-box" :rows="2" placeholder="请输入内容" v-model="kind">
-        </el-input>
-      </div>
+      <el-form>
+        <el-form-item label="姓名">
+          <el-select class="input-box" v-model="userName" placeholder="请选择">
+            <el-option v-for="item in userNames" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-form-item label="时间">
+            <el-date-picker
+              class="input-box"
+              v-model="dataTime"
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
+          </el-form-item>
+        </el-form-item>
+        <el-form-item>
+          <el-form-item label="价格">
+            <el-input v-model="price" class="input-box" placeholder="请输入价格"></el-input>
+          </el-form-item>
+        </el-form-item>
+        <el-form-item>
+          <el-form-item label="材料">
+            <el-input type="textarea" class="input-box" :rows="2" placeholder="请输入内容" v-model="kind"></el-input>
+          </el-form-item>
+        </el-form-item>
+      </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="dialogVisible = false">确定</el-button>
