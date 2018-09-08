@@ -25,11 +25,7 @@
         </el-form-item>
         <el-form-item>
           <el-form-item label="时间">
-            <el-date-picker
-              class="input-box"
-              v-model="dataTime"
-              type="date"
-              placeholder="选择日期">
+            <el-date-picker class="input-box" v-model="dataTime" type="date" placeholder="选择日期">
             </el-date-picker>
           </el-form-item>
         </el-form-item>
