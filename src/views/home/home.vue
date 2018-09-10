@@ -9,15 +9,23 @@
     </el-container>
   </el-container>
 </template>
-<script>
-import Header from '../../components/header/header'
-import Aside from '../../components/aside/aside'
+<script lang='ts'>
+/* eslint-disable */
+import { Vue, Component, Prop } from 'vue-property-decorator'
+// import Vue from 'vue'
+// import Component from 'vue-class-component'
+import Header from '../../components/header/header.vue'
+import Aside from '../../components/aside/aside.vue'
 
-export default {
+
+@Component({
   components: {
     Header,
     Aside
   }
+})
+export default class Home extends Vue {
+  name:string = 'home'
 }
 </script>
 <style lang="less">
