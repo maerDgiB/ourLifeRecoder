@@ -1,18 +1,21 @@
 <template>
-  <div class="loginbox">
-    <h1>登录</h1>
-    <el-form>
-      <el-form-item label="用户名" :model="ruleForm" :rules="rules">
-        <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
-        <p>{{formName.userError}}</p>
-      </el-form-item>
-      <el-form-item label="密码">
-        <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
-        <p>{{formName.passwordError}}</p>
-      </el-form-item>
-      <el-button class="upbtn" type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
-      <el-button @click="resetForm">重置</el-button>
-    </el-form>
+  <div class='login-page'>
+    <div class="loginbox" @click='showLogin' :class="[count===0? 'init' : 'showLogin']">
+        <p class='init-text'>登录</p>
+        <h3>登录</h3>
+        <el-form>
+          <el-form-item label="用户名">
+            <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
+            <p>{{formName.userError}}</p>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
+            <p>{{formName.passwordError}}</p>
+          </el-form-item>
+          <el-button class="upbtn" type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
+          <el-button @click="resetForm">重置</el-button>
+        </el-form>
+      </div>
   </div>
 </template>
 <style lang="less" src="./login.less"></style>
@@ -27,7 +30,8 @@ export default {
         passwordError: '',
         beDisabled: true
       },
-      beShow: false // 传值给父组件
+      beShow: false, // 传值给父组件
+      count: 0
     }
   },
   methods: {
@@ -63,6 +67,10 @@ export default {
       } else {
         this.formName.beDisabled = true
       }
+    },
+    showLogin () {
+      !this.count && this.count++
+      console.log(this.count)
     }
   }
 }
