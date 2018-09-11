@@ -35,19 +35,19 @@ export default {
     }
   },
   methods: {
-    resetForm: function () {
+    resetForm() {
       this.formName.user = ''
       this.formName.userError = ''
       this.formName.password = ''
       this.formName.passwordError = ''
     },
-    submitForm: function (formName) {
+    submitForm(formName) {
       var user = this.formName.user
       var password = this.formName.password
       console.log(user, password)
       // ajax 是否登录成功
     },
-    inputBlur: function (errorItem, inputContent) {
+    inputBlur(errorItem, inputContent) {
       if (errorItem === 'user') {
         if (inputContent === '') {
           this.formName.userError = '用户名不能为空'
@@ -68,7 +68,7 @@ export default {
         this.formName.beDisabled = true
       }
     },
-    showLogin () {
+    showLogin() {
       !this.count && this.count++
       console.log(this.count)
     }
