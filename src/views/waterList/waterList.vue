@@ -78,6 +78,20 @@ export default {
         label: '邹大佬'
       }]
     }
+  },
+  mounted: function () {
+    this.getTable()
+  },
+  methods: {
+    getTable: function () {
+      let params = {
+        startPage: 1,
+        pageSize: 1
+      }
+      this.$api.tableOrder(params).then((res) => {
+        console.log(res)
+      })
+    }
   }
 }
 </script>
