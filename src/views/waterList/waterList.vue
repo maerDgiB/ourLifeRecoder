@@ -85,8 +85,10 @@ export default {
   methods: {
     getTable: function () {
       let params = {
-        startPage: 1,
-        pageSize: 1
+        params: {
+          startPage: 1,
+          pageSize: 1
+        }
       }
       this.$api.tableOrder(params).then((res) => {
         console.log(res)
