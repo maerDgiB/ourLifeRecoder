@@ -1,6 +1,6 @@
-const base = 'http://192.168.0.103'
+const base = 'http://192.168.0.103/api'
 
 export default {
-  login: `${base}/login`,
-  tableOrder: `${base}/api/Order`
+  login: `${base}/Account/Token`,
+  tableOrder: `${base}/Order`
 }
