@@ -11,11 +11,6 @@ interface iLoginResponse {
     token: string;
 }
 
-interface iLoginResponse {
-    username: number;
-    token: string;
-}
-
 interface iListParam {
     startPage: number;
     pageSize: number;
