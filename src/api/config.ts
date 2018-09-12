@@ -1,4 +1,4 @@
-const base: string = ''
+const base: string = '/api'
 
 // interface iConfig {
 //   [config: string]: string;
@@ -8,5 +8,11 @@ const base: string = ''
 // }
 
 export default {
-  login: `${base}/login`
+  // api/Account/Token
+  login: `${base}/Account/Token`,
+  getUser: `${base}/Account/Token`,
+  list: {
+    get: `${base}/Order`,
+    add: `${base}/Order`,
+  }
 }
