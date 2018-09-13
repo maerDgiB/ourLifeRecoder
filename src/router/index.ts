@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import Router, { RouteConfig } from 'vue-router'
+import Vue from 'vue';
+import Router, { RouteConfig } from 'vue-router';
 // import Home from '../views/home/home.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 const routes: RouteConfig[] = [
   {
@@ -19,8 +19,8 @@ const routes: RouteConfig[] = [
       { path: '/', component: resolve => require(['../views/waterList/waterList.vue'], resolve) }
     ]
   }
-]
+];
 
 export default new Router({
   routes,
-})
+});

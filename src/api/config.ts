@@ -1,4 +1,4 @@
-const base: string = '/api'
+const base: string = '/api';
 
 // interface iConfig {
 //   [config: string]: string;
@@ -15,4 +15,4 @@ export default {
     get: `${base}/Order`,
     add: `${base}/Order`,
   }
-}
+};

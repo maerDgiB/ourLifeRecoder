@@ -21,12 +21,16 @@ module.exports = {
   },
   loaders: {
     ts: [
-          {
-            loader: 'ts-loader',
-            options: {
-                  appendTsSuffixTo: [/\.vue$/]
-          }
-    }]
+      // {
+      //   enforce: 'pre',
+      //   loader: 'tslint-loader'
+      // },
+      {
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      }]
   },
   options: {
     esModule: true

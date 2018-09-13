@@ -1,0 +1,14 @@
+{
+    "extends": "tslint-config-standard",
+    "rules": {
+        "variable-name": false,
+        "semicolon": true,
+        "await-promise": false,
+        "trailing-comma": false,
+        "strict-type-predicates": false,
+        "no-floating-promises": false,
+        "deprecation": false,
+        "no-unnecessary-type-assertion": false,
+        "no-unnecessary-qualifier": false
+    }
+}

@@ -10,7 +10,8 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "fix": "tslint --fix"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -66,6 +67,9 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "ts-loader": "^5.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-loader": "^3.6.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^1.1.1",
     "vue-class-component": "^6.2.0",
