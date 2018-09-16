@@ -8,12 +8,13 @@
       <el-form-item label="密码" prop='pwd'>
         <el-input type="password" id="pwd" v-model="loginForm.pwd" ></el-input>
       </el-form-item>
-      <el-button type="primary" class="loginbtn" >登录</el-button>
+      <el-button type="primary" class="loginbtn" @click="postLogin">登录</el-button>
     </el-form>
   </div>
 </template>
 <style lang="less" src="./login.less"></style>
 <script>
+  import Md5 from './login.js'
   export default {
     data () {
       var checkUser = (rule, value, callback) => {
@@ -48,9 +49,10 @@
     methods: {
       postLogin: function () {
         let params = {
-          userName: '',
-          password: ''
+          userName: this.loginForm.user,
+          password: Md5.md5(this.loginForm.pwd)
         }
+        console.log(params)
         this.$api.login(params).then((res) => {
           if (res) {
             console.log(res)
