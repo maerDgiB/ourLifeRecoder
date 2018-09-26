@@ -1,4 +1,4 @@
-const base = 'http://192.168.0.103/api'
+const base = 'http://api.bqggg.com/api'
 
 export default {
   login: `${base}/Account/Token`,
