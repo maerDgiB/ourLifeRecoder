@@ -55,7 +55,8 @@
         console.log(params)
         this.$api.login(params).then((res) => {
           if (res) {
-            console.log(res)
+            window.localStorage.setItem("token",res.data.token);
+            window.location = "http://localhost:8080/#/home"
           }
         })
       }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from './config'
 
-axios.defaults.headers.common['Authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2ZjcxYmQyMC01M2ZmLTQ2YTItNWUwYS0wOGQ2MTU0Mzk1ZTciLCJHcm91cCI6IjZkNzUzOTgwLThjODQtNGRhZC04NmE5LWYxZWI4ZmMwMGFiYyIsIlJvbGUiOiJDbGllbnQiLCJpYXQiOiIyMDE4LzkvMTUgMjozMDoxNiIsImV4cCI6MTUzNjk4NTgxNiwiaXNzIjoiTGlmZVJlY29kZXIifQ.isRysZfKShLXxXhlqAqdwDHbkOryje5hz0LvQwUMo2o'
+axios.defaults.headers.common['Authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2Yjg4Mzc4YS0zNWU0LTRkNzAtNDVhNS0wOGQ2MjFkYTYyMDkiLCJHcm91cCI6ImViZmJjZDhhLTU5NWQtNDU3Zi1iZDJhLWMyMDA3ZDI3ZTRjOCIsIlJvbGUiOiJDbGllbnQiLCJpYXQiOiIyMDE4LzkvMjYgMTQ6MjM6NDUiLCJleHAiOjE1Mzc5NzkwMjUsImlzcyI6IkxpZmVSZWNvZGVyIn0.v9iJ1yjqye9XpSX81dsKxc8AWGaeblvEVLF5jP7Bhx4'
 export default {
     login: body => axios.post(config.login, body),
     tableOrder: body => axios.get(config.tableOrder, body),
