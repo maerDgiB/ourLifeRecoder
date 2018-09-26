@@ -6,7 +6,7 @@
         <el-input type="text" id="user" v-model="loginForm.user" autoFocus></el-input>
       </el-form-item>
       <el-form-item label="密码" prop='pwd'>
-        <el-input type="password" id="pwd" v-model="loginForm.pwd" ></el-input>
+        <el-input type="password" id="pwd" v-model="loginForm.pwd" @keyup.enter.native="postLogin"></el-input>
       </el-form-item>
       <el-button type="primary" class="loginbtn" @click="postLogin">登录</el-button>
     </el-form>
