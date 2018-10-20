@@ -15,6 +15,7 @@
 <style lang="less" src="./login.less"></style>
 <script>
   import Md5 from './login.js'
+
   export default {
     data () {
       var checkUser = (rule, value, callback) => {
@@ -44,7 +45,7 @@
       }
     },
     mounted: function () {
-      this.postLogin()
+      // this.postLogin()
     },
     methods: {
       postLogin: function () {
@@ -55,8 +56,9 @@
         console.log(params)
         this.$api.login(params).then((res) => {
           if (res) {
-            window.localStorage.setItem("token",res.data.token);
-            window.location = "http://localhost:8080/#/home"
+            window.localStorage.setItem('token', res.data.token)
+            window.localStorage.setItem('userName', res.data.username)
+            window.location = './#/home'
           }
         })
       }
