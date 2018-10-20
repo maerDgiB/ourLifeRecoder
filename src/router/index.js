@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -13,6 +13,9 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
+      meta: {
+        requireAuth: true
+      },
       component: resolve => require(['../views/home/home.vue'], resolve),
       children: [
         {path: '/', component: resolve => require(['../views/waterList/waterList.vue'], resolve)}
@@ -20,3 +23,19 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(res => res.meta.requireAuth)) { // 判断是否需要登录权限
+    if (localStorage.getItem('token')) { // 判断是否登录
+      next()
+    } else { // 没登录则跳转到登录界面
+      next({
+        path: '/',
+        query: {redirect: to.fullPath}
+      })
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
