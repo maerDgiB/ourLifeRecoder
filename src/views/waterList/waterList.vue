@@ -1,8 +1,8 @@
 <template>
   <div class="water-list">
     <div class="add-wrapper">
-      总金额：<span class="number">10000元</span> 剩余金额：<span class="number">1000元</span>
-      <el-button type="primary" class="add" @click="addTable">添加</el-button>
+      剩余金额：<span class="number">{{totalMoney?totalMoney:'0'}}元</span>
+    <el-button type="primary" class="add" @click="addTable">添加</el-button>
     </div>
     <el-table :data="tableData" style="width: 100%">
       <el-table-column prop="id" label="ID" width="180"></el-table-column>
@@ -51,6 +51,8 @@
 </template>
 <style lang="less" src='./waterList.less'></style>
 <script>
+import axios from 'axios'
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('token') ? localStorage.getItem('token') : ''
 export default {
   data () {
     let chackPrice = (rule, value, callback) => {
@@ -71,6 +73,7 @@ export default {
           {type: 'number', message: '价格必须为数字值'}
         ]
       },
+      totalMoney: '',
       tableData: [],
       dialogVisible: false,
       userNames: [],
@@ -89,8 +92,14 @@ export default {
   mounted: function () {
     this.getTable()
     this.getNickNames()
+    this.getUserInfo()
   },
   methods: {
+    getUserInfo: function () {
+      this.$api.getTeam().then((res) => {
+        this.totalMoney = res.data.totalMoney
+      })
+    },
     getTable: function () {
       let params = {
         params: this.paginationData
